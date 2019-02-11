@@ -25,7 +25,7 @@ function accesoBBDD($consulta, $servidor, $bbdd, $usuario_mysql, $clave_mysql){
     }
     
     
-    print_r($result);
+//    print_r($result);
     
     return $rows;
     
@@ -76,7 +76,7 @@ function guardaDatos($consulta, $servidor, $bbdd, $usuario_mysql, $clave_mysql){
     
     $result = $conn->query($consulta);
 
-    print_r($result);
+   // print_r($result);
       
     $conn->close();
 }

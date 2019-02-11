@@ -92,10 +92,4 @@ foreach($portadasInicio as $key => $value){
     $arrayPortada[]=$value['portada'];
 }
 
-echo("<pre>");
-print_r($arrayID);
-echo("</pre>");
 
-echo("<pre>");
-print_r($arrayPortada);
-echo("</pre>");

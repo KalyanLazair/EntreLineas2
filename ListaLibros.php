@@ -2,8 +2,6 @@
 
    session_start();
    
-   header("Content-Type: text/html;charset=utf-8");
-   
    include('configuracion.php');
    include('misFunciones.php');
    
@@ -26,7 +24,7 @@ $listaLibroGenero=accesoBBDD($consultaPorGenero, $servidor, $bbdd, $usuario_mysq
 
 ?>
 
-<div>
+<div class="unit1">
     <?php
                foreach ($listaLibroGenero as $key => $value){
 //                   echo '<pre>';
@@ -48,29 +46,7 @@ $listaLibroGenero=accesoBBDD($consultaPorGenero, $servidor, $bbdd, $usuario_mysq
 	    </div>
 	</article>
     </div>
-<!--        <div class="cajadelibros border border-dark">
-            <div class="row">
-              <div class="portadadelibro col-3">
-                  <a href="#" class="image"><img src="<?php echo $value['portada'];?>"></a></div>
-              <div class="col-8">
-                  <div class="titulodelibro row"><h2><?php echo $value['titulo'];?></3></div>
-                  <div class="autordelibro row"><h3><?php echo $value['autor'];?></h3></div>
-                  <div class="descripciondelibro row">Sinópsis; <?php echo $value['descripcion'];?></div>
-                  <div class="generodelibro row"><h4>Género; <?php echo $value['genero'];?></h4></div>
-                      <div class="row">
-                          <div class="col-4"></div>
-                          <div class="col-3">
-                          <button class="botondelibro" value="<?php echo $value['IDLibro'];?>">Libro</button>
-                          </div>
-                          <div class="col-3">
-                          <button class="botondeautor" value="<?php echo $value['autor'];?>">Autor</button>
-                          </div>
-                          <div class="col-2"></div>
-                      </div>
 
-              </div>
-            </div>
-        </div>-->
             <br/>
             <br/>
             <?php
@@ -134,7 +110,17 @@ img {
     width: 150px;
     float: left;
 }   
+.unit1 {
+    height: 70%;
+}
 
+div#contenedor {
+    height: 100%;
+}
+
+.inner {
+    height: 100%;
+}
 
     </style>
 

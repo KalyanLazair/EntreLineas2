@@ -12,17 +12,10 @@
    $datosLibro1=accesoBBDD($consultaLibro,$servidor, $bbdd, $usuario_mysql,$clave_mysql);
    $datosLibro = $datosLibro1[0]; //Lo guardamos en un array de una sola dimensión para que sea más fácil manejarlo.
    $datosID=$datosLibro['IDLibro'];
-   echo "Este es el ID del libro ". $datosID; 
-   echo '<pre>';
-   print_r($datosLibro);
-   echo '</pre>';
    
    //Comentarios
    $consultaComent="SELECT * FROM $bbdd.comentarios WHERE libro=$idLibro;";
    $listaComent=accesoBBDD($consultaComent,$servidor, $bbdd, $usuario_mysql,$clave_mysql);
-//   echo '<pre>';
-//   print_r($listaComent);
-//   echo '</pre>';
 
 ?>
 
