@@ -17,6 +17,7 @@ foreach ($portadasInicio as $key => $value) {
     $arrayID[] = $value['IDLibro'];
     $arrayPortada[] = $value['portada'];
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -35,16 +36,19 @@ and open the template in the editor.
         <link rel="stylesheet" href="assets/css/main.css" />
     </head>
     <body >
+        <div class="volverIndex" >Banner</div>
         <div id="wrapper">
+            
             <div id="main">
                 <div class="inner">
+                    
 
                     <!-- Header -->
                     <header id="header">
                         <a href="index.html" class="logo"><strong>Editorial</strong> by HTML5 UP</a>
                         <ul class="icons">
                             <li>
-                                <div class="volverIndex" >Banner</div>
+                                
                             </li>
                             <li>
                                 <div class="" >
@@ -52,31 +56,36 @@ and open the template in the editor.
                                 </div>
                             </li>
                             <li>
+                             <?php
+                               if(isset($_SESSION['username'])== null){
+                                   ?>
                                 <div class="" >
                                     <button class="btn " type="button" onclick="cargaRegistro();">Registrarse</button>
                                 </div>
                             </li>
-<?php
-//isset busca si la variable $_Session existe.
-if (isset($_SESSION['username'])) {
-    ?>
+                            <?php
+                               }?>
+                            <?php
+                                //isset busca si la variable $_Session existe.
+                                if (isset($_SESSION['username'])) {
+                             ?>
                                 <li>
                                     <div class="" > 
                                         <button id="buttonProfile" class="btn  " type="submit" onclick=""><?php echo $_SESSION['username'] ?></button>
                                         <a href="/EntreLineas/logoff.php">Log Off</a>
                                     </div>
                                 </li>    
-    <?php
-} else {
-    ?>
+                             <?php
+                                } else {
+                             ?>
                                 <li>
                                     <div class="">
                                         <button id="botonLoginPrincipal" class="btn" type="button" onclick="cargaLogin();">Login</button>
                                     </div>
                                 </li>   
-    <?php
-}
-?>
+                             <?php
+                                }
+                             ?>
 
 
 
@@ -354,6 +363,11 @@ foreach ($portadasInicio as &$valorLibro) {
         div#contenedor .btn {
             width: 100%;
 
+        }
+        
+        .volverIndex{
+            width:100%;
+            height:200px;
         }
 
     </style>

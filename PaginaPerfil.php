@@ -52,25 +52,25 @@ if($numeroPerfil==2){
 }else if($numeroPerfil==1){
     
     //Vamos a sacar los datos del usuario que tenga el IDUser igual al que le pasamos como parámetro.
-$IDusuario=$_SESSION['IDUser'];
-$consulta= "SELECT * FROM $bbdd.userdata WHERE IDUserData=$IDusuario;";
+    $IDusuario=$_SESSION['IDUser'];
+    $consulta= "SELECT * FROM $bbdd.userdata WHERE IDUserData=$IDusuario;";
 
-$resultado2 = accesoBBDD($consulta, $servidor, $bbdd, $usuario_mysql,$clave_mysql);
+    $resultado2 = accesoBBDD($consulta, $servidor, $bbdd, $usuario_mysql,$clave_mysql);
 
 
-if($resultado2 != NULL){
-    //Datos procesados, se procesa el array /array to string/ con el foreach.
-    foreach ($resultado2 as $key => $value) {
-           $_SESSION['nombre']=$value['nombre'];
-            $_SESSION['apellidos']=$value['apellidos'];
-            $_SESSION['sexo']=$value['sexo'];
-            $_SESSION['ciudad']=$value['ciudad'];
-            $_SESSION['pais']=$value['pais'];
+    if($resultado2 != NULL){
+         //Datos procesados, se procesa el array /array to string/ con el foreach.
+         foreach ($resultado2 as $key => $value) {
+             $_SESSION['nombre']=$value['nombre'];
+             $_SESSION['apellidos']=$value['apellidos'];
+             $_SESSION['sexo']=$value['sexo'];
+             $_SESSION['ciudad']=$value['ciudad'];
+             $_SESSION['pais']=$value['pais'];
              $_SESSION['descripcion']=$value['descripcion'];
-            $_SESSION['foto']=$value['foto'];   
-    }
+             $_SESSION['foto']=$value['foto'];   
+         }
     
-}
+    }
     
     $autor=$_SESSION['username'];
     //Datos
@@ -137,7 +137,15 @@ $listaLibros = accesoBBDD($consultaLibros, $servidor, $bbdd, $usuario_mysql,$cla
             <br>
             <button class="btn botonesenperfil" type="button">Favoritos</button>
             <br>
-            <button id="botonModifica" class="btn botonesenperfil" type="button" onclick="modificar();">Modificar Perfil</button>
+            <?php
+          //isset busca si la variable $_Session existe.
+          if ($_SESSION['username'] == $autor) {
+              ?>
+                <button id="botonModifica" class="btn botonesenperfil" type="button" onclick="modificar();">Modificar Perfil</button>                 
+         <?php
+         }
+          ?>
+            
             <br>
             <button class="btn botonesenperfil" type="button" onclick="publicaLibro();">Publicar Libro</button>
         </div>
@@ -280,6 +288,5 @@ img {
 #principal2{
     float:left;
 }
-
 
     </style>

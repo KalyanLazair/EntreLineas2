@@ -12,6 +12,7 @@
    $datosLibro1=accesoBBDD($consultaLibro,$servidor, $bbdd, $usuario_mysql,$clave_mysql);
    $datosLibro = $datosLibro1[0]; //Lo guardamos en un array de una sola dimensión para que sea más fácil manejarlo.
    $datosID=$datosLibro['IDLibro'];
+   $datosAutor=$datosLibro['autor'];
    
    //Comentarios
    $consultaComent="SELECT * FROM $bbdd.comentarios WHERE libro=$idLibro;";
@@ -35,7 +36,13 @@
             <br>
             <button class="btn  btn-block disabled" type="button"><?php echo $datosLibro["genero"];?></button>
             <br/>
+            <?php
+                    if($_SESSION['username'] == $datosAutor){
+                ?>          
              <button id="mLibro" class="btn  btn-block" type="button">Modificar</button>
+             <?php
+                 }
+             ?>
         </div>
     </div>
     <div id="principal3" class="col-8 border border-dark">
@@ -44,7 +51,7 @@
             <div class="col-6 border border-dark">
                 <button class="btn  btn-block" type="button">Comprar</button>
             </div>
-            <div class="col-6 border border-dark">
+            <div class="col-6 border border-dark"> 
                 <button class="btn  btn-block" type="button" onclick="muestraModal();">Comentar</button>
             </div> 
         </div>

@@ -26,6 +26,31 @@
     </div>
 </div>
 
+
+<!-- MODAL -->
+
+<div id="modalInserta" class="modal" tabindex="-1" role="dialog" >
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">El libro se ha publicado correctamente</h5>  
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="comment">Comment:</label>
+                    <textarea id="comentario" class="form-control" rows="5"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="botonComentar" type="button" class="btn btn-secondary" data-dismiss="modal">Comentar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
     
 
@@ -54,5 +79,8 @@
                                     });       
                                     
                                 });
+                                
+    
+    
 
 </script>

@@ -77,8 +77,10 @@ function guardaDatos($consulta, $servidor, $bbdd, $usuario_mysql, $clave_mysql){
     $result = $conn->query($consulta);
 
    // print_r($result);
-      
+       
     $conn->close();
+    
+    return true;
 }
 
 
