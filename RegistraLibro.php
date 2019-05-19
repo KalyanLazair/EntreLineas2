@@ -2,25 +2,55 @@
    session_start();
 ?>
 
-<div class="row">
+<div class="row filas">
     <div class="col-6 border border-dark">
-        <p>Título</p>
-        <p>Descripcion</p>
-        <p>Género</p>
-        <p>Archivo Diez Páginas</p>
-        <p>Archivo E-Book</p>
-        <p>Portada</p>
+        <button class="button primary fit" type="button">Título</button>
     </div>
     <div class="col-6 border border-dark">
         <input id="cajaTitulo" class="form-control" name="titulo_libro" type="text" placeholder="Título">
+    </div>
+</div>
+<div class="row filas">
+    <div class="col-6 border border-dark">
+        <button class="button primary fit" type="button">Descripción</button>
+    </div>
+    <div class="col-6 border border-dark">
         <input id="cajaDesc" class="form-control" name="descripcion_libro" type="text" placeholder="Descripción">
+    </div>
+</div>
+<div class="row filas">
+    <div class="col-6 border border-dark">
+        <button class="button primary fit" type="button">Género</button>
+    </div>
+    <div class="col-6 border border-dark">
         <input id="cajaGenero" class="form-control" name="genero_libro" type="text" placeholder="Género">
+    </div>
+</div>
+<div class="row filas">
+    <div class="col-6 border border-dark">
+        <button class="button primary fit" type="button">Muestra</button>
+    </div>
+    <div class="col-6 border border-dark">
         <input id="cajaArchivo10" class="form-control" name="archivo10_libro" type="text" placeholder="Archivo 10pg.">
+    </div>
+</div>
+<div class="row filas">
+    <div class="col-6 border border-dark">
+        <button class="button primary fit" type="button">Archivo E-Book</button>
+    </div>
+    <div class="col-6 border border-dark">
         <input id="cajaArchivo" class="form-control" name="archivo_libro" type="text" placeholder="Archivo e-Book">
+    </div>
+</div>
+<div class="row filas">
+    <div class="col-6 border border-dark">
+        <button class="button primary fit" type="button">Portada</button>
+    </div>
+    <div class="col-6 border border-dark">
         <input id="cajaPortada" class="form-control" name="portada_libro" type="text" placeholder="Portada">
     </div>
 </div>
-<div class="row">
+<div class="row filas">
     <div class="col-12">
         <button id="botonPublicar" class="btn " type="button" >Publicar</button>
     </div>
@@ -84,3 +114,18 @@
     
 
 </script>
+
+<style>
+    .botonesenperfil{
+    margin-top: 2px;
+    margin-bottom:6px;
+    margin-left:2%;
+    margin-right:2%;
+}
+
+.filas{
+    margin-top:2px;
+    margin-bottom:6px;
+}
+    
+</style>

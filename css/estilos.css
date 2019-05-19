@@ -87,3 +87,9 @@ img{
     height:300px;
     object-fit: contain;
 }
+
+.portadas{
+    width:200px;
+    height:300px;
+    display: inline-block;
+}

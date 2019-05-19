@@ -35,16 +35,16 @@ $listaLibroGenero=accesoBBDD($consultaPorGenero, $servidor, $bbdd, $usuario_mysq
     
     <div class="cajadelibros">
         <article>
-	    <span><a href="#" class="image"><img src="<?php echo $value['portada'];?>"></a></span>
-	    <div class="content">
+	    <span><a href="#" class="image"><img src="<?php echo $value['portada'];?>"></a></span>   
+	</article>
+         <div class="content">
 		<h2><?php echo $value['titulo'];?></h2>
                 <h3><?php echo $value['autor'];?></h3>
 		<p>Sinópsis; <?php echo $value['descripcion'];?></p>
                 <h4>Género; <?php echo $value['genero'];?></h4>
                 <button class="botondelibro" value="<?php echo $value['IDLibro'];?>">Libro</button>
                 <button class="botondeautor" value="<?php echo $value['autor'];?>">Autor</button>
-	    </div>
-	</article>
+         </div>
     </div>
 
             <br/>
@@ -120,6 +120,10 @@ div#contenedor {
 
 .inner {
     height: 100%;
+}
+
+.barraCentral{
+    float:left;    
 }
 
     </style>

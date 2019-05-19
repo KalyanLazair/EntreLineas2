@@ -20,42 +20,43 @@
 
 ?>
 
-<div class="contenedorPerfil row" >
-    <div class="col-4 border border-dark">
-        <div class="row border border-dark">
+<div class="contenedorPerfil border border-dark row" >
+    <div class="col-4">
+        <div class="row">
             <div class="col-2"></div>
-            <div class="col-8 border border-dark" >
-                <img src="<?php echo $datosLibro["portada"];?>"></div>
+            <div class="col-8" >
+                <a href="#" class="image"><img src="<?php echo $datosLibro["portada"];?>"></a>
+            </div>
             <div class="col-2"></div>
         </div>
-        <div class="row border border-dark" >
-            <button class="btn  btn-block disabled" type="button"><?php echo $datosLibro["titulo"];?></button>
+        <div class="row" >
+            <button class="button primary fit datos" type="button"><?php echo $datosLibro["titulo"];?></button>
             <br>
-            <button id="autorPgLibro" class="btn  btn-block" type="button" value="<?php echo $datosLibro["autor"];?>">
+            <button id="autorPgLibro" class="button primary fit datos" type="button" value="<?php echo $datosLibro["autor"];?>">
                 <?php echo $datosLibro["autor"];?></button>
             <br>
-            <button class="btn  btn-block disabled" type="button"><?php echo $datosLibro["genero"];?></button>
+            <button class="button primary fit datos" type="button"><?php echo $datosLibro["genero"];?></button>
             <br/>
             <?php
                     if($_SESSION['username'] == $datosAutor){
                 ?>          
-             <button id="mLibro" class="btn  btn-block" type="button">Modificar</button>
+             <button id="mLibro" class="btn botonesenperfil" type="button">Modificar</button>
              <?php
                  }
              ?>
         </div>
     </div>
     <div id="principal3" class="col-8 border border-dark">
-        <div class="row border border-dark" ><?php echo $datosLibro["archivo10"];?></div>
-        <div class="row border border-dark" >
-            <div class="col-6 border border-dark">
-                <button class="btn  btn-block" type="button">Comprar</button>
+        <div class="row" ><a href="#"><img src="<?php echo $datosLibro["archivo10"];?>" id="textoMuestra"></a></div>
+        <div class="row" >
+            <div class="col-6">
+                <button class="btn botonesCC" type="button">Comprar</button>
             </div>
-            <div class="col-6 border border-dark"> 
-                <button class="btn  btn-block" type="button" onclick="muestraModal();">Comentar</button>
+            <div class="col-6"> 
+                <button class="btn botonesCC" type="button" onclick="muestraModal();">Comentar</button>
             </div> 
         </div>
-        <div class="row border border-dark">
+        <div class="row">
         
                  <?php
               if($listaComent!=NULL){
@@ -65,12 +66,16 @@
 //                   echo '</pre>';
                    
                    ?>
-            <div class="cajadecoment">
-                      <div class="titulodelibro row"><?php echo $value['usuario'];?></div>
-                      <div class="descripciondelibro row"><?php echo $value['contenido'];?></div>   
-            </div>
-            <br/>
-            <br/>
+   
+            <div class="cajadelibros">
+              <article>
+	       <span><a href="#" class="image"><img src="<?php echo $value['fotouser'];?>"></a></span>
+	          <div class="content">
+		    <h2><?php echo $value['usuario'];?></h2>
+		    <p><?php echo $value['contenido'];?></p>
+	          </div>
+	      </article>
+          </div>
             <?php
                }
               }
@@ -149,3 +154,81 @@
 
 
 </script>
+
+ <style>
+
+.cajadelibros {
+    border-bottom: #dc3545 5px solid;
+    width: 84%;
+    margin-bottom:50px;
+    margin-left: 10%;
+}
+
+
+.content {
+    width: 65%;
+    float: left;
+    margin-left: 4%;
+}
+
+a.image {
+
+    float: left;
+}
+
+img {
+    width: 150px;
+    float: left;
+}
+
+.datos{
+    margin-top: 2px;
+    margin-bottom:2px;
+    margin-left:10%;
+    margin-right:10%;
+}
+
+.botonesenperfil{
+    margin-top: 2px;
+    margin-bottom:6px;
+    margin-left:10%;
+    margin-right:10%;
+}
+
+.fotoPerfil{
+    margin:4%;
+    max-width: 200px;
+    max-height:300px;
+}
+
+.barraCentral{
+    float:left;    
+}
+
+.descripcionUsuario{
+    width:80%;
+    height: 300px;
+    margin:auto;
+    padding: 6%;
+}
+
+#principal2{
+    float:left;
+}
+
+#textoMuestra{
+    margin:auto;
+    width:100%;
+    height:100%;
+    padding:4%;
+}
+
+.botonesCC{
+    margin-top: 2px;
+    margin-bottom:6px;
+    margin-left:2%;
+    margin-right:2%;
+}
+
+    </style>
+

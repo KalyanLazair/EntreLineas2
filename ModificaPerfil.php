@@ -23,31 +23,66 @@ if($resultado2 != NULL){
     
 }
 
-echo $_SESSION['nombre'];
 
 ?>
 
-<div class="row">
+<div class="row filas">
     <div class="col-6 border border-dark">
-        <p>Nombre</p>
-        <p>Apellidos</p>
-        <p>Género</p>
-        <p>Ciudad</p>
-        <p>País</p>
-        <p>Descripción</p>
-        <p>Foto</p>
+        <button class="button primary fit" type="button">Nombre</button>
     </div>
     <div class="col-6 border border-dark">
         <input id="cajaN" class="form-control" type="text" placeholder="Nombre">
+    </div>
+</div>
+<div class="row filas">
+    <div class="col-6 border border-dark">
+        <button class="button primary fit" type="button">Apellidos</button>
+    </div>
+    <div class="col-6 border border-dark">
         <input id="cajaA" class="form-control" type="text" placeholder="Apellidos">
+    </div>
+</div>
+<div class="row filas">
+    <div class="col-6 border border-dark">
+        <button class="button primary fit" type="button">Género</button>
+    </div>
+    <div class="col-6 border border-dark">
         <input id="cajaG" class="form-control" type="text" placeholder="Género">
+    </div>
+</div>
+<div class="row filas">
+    <div class="col-6 border border-dark">
+        <button class="button primary fit" type="button">Ciudad</button>
+    </div>
+    <div class="col-6 border border-dark">
         <input id="cajaC" class="form-control" type="text" placeholder="Ciudad">
+    </div>
+</div>
+<div class="row filas">
+    <div class="col-6 border border-dark">
+        <button class="button primary fit" type="button">País</button>
+    </div>
+    <div class="col-6 border border-dark">
         <input id="cajaP" class="form-control" type="text" placeholder="País">
+    </div>
+</div>
+<div class="row filas">
+    <div class="col-6 border border-dark">
+        <button class="button primary fit" type="button">Descripción</button>
+    </div>
+    <div class="col-6 border border-dark">
         <input id="cajaD" class="form-control" type="text" placeholder="Descripción">
+    </div>
+</div>
+<div class="row filas">
+    <div class="col-6 border border-dark">
+        <button class="button primary fit" type="button">Foto</button>
+    </div>
+    <div class="col-6 border border-dark">
         <input id="cajaF" class="form-control" type="text" placeholder="Foto">
     </div>
 </div>
-<div class="row">
+<div class="row filas">
     <div class="col-12">
         <button id="botonActualizar" class="btn " type="button" >Actualizar</button>
     </div>
@@ -94,4 +129,19 @@ echo $_SESSION['nombre'];
      
 
 </script>
+
+<style>
+    .botonesenperfil{
+    margin-top: 2px;
+    margin-bottom:6px;
+    margin-left:2%;
+    margin-right:2%;
+}
+
+.filas{
+    margin-top:2px;
+    margin-bottom:6px;
+}
+    
+</style>
 

@@ -6,7 +6,6 @@
      
      $idLibro=$_POST['libro'];
      
-     echo $idLibro;
      
    $consultaLibro="SELECT * FROM $bbdd.libro WHERE IDLibro=$idLibro;";
    
@@ -14,25 +13,55 @@
    $datosLibro = $datosLibro1[0]; //Lo guardamos en un array de una sola dimensión para que sea más fácil manejarlo.
 ?>
 
-<div class="row">
+<div class="row filas">
     <div class="col-6 border border-dark">
-        <p>Título</p>
-        <p>Descripcion</p>
-        <p>Género</p>
-        <p>Archivo Diez Páginas</p>
-        <p>Archivo E-Book</p>
-        <p>Portada</p>
+        <button class="button primary fit" type="button">Título</button>
     </div>
     <div class="col-6 border border-dark">
         <input id="cajaTituloM" class="form-control" type="text" placeholder="Título">
+    </div>
+</div>
+<div class="row filas">
+    <div class="col-6 border border-dark">
+        <button class="button primary fit" type="button">Desripción</button>
+    </div>
+    <div class="col-6 border border-dark">
         <input id="cajaDescM" class="form-control" type="text" placeholder="Descripción">
+    </div>
+</div>
+<div class="row filas">
+    <div class="col-6 border border-dark">
+        <button class="button primary fit" type="button">Género</button>
+    </div>
+    <div class="col-6 border border-dark">
         <input id="cajaGeneroM" class="form-control" type="text" placeholder="Género">
+    </div>
+</div>
+<div class="row filas">
+    <div class="col-6 border border-dark">
+        <button class="button primary fit" type="button">Muestra</button>
+    </div>
+    <div class="col-6 border border-dark">
         <input id="cajaArchivo10M" class="form-control" type="text" placeholder="Archivo 10pg.">
+    </div>
+</div>
+<div class="row filas">
+    <div class="col-6 border border-dark">
+        <button class="button primary fit" type="button">Archivo E-Book</button>
+    </div>
+    <div class="col-6 border border-dark">
         <input id="cajaArchivoM" class="form-control" type="text" placeholder="Archivo e-Book">
+    </div>
+</div>
+<div class="row filas">
+    <div class="col-6 border border-dark">
+        <button class="button primary fit" type="button">Portada</button>
+    </div>
+    <div class="col-6 border border-dark">
         <input id="cajaPortadaM" class="form-control" type="text" placeholder="Portada">
     </div>
 </div>
-<div class="row">
+<div class="row filas">
     <div class="col-12">
         <button id="botonActualizaLibro" class="btn " type="button" >Actualizar</button>
     </div>
@@ -77,5 +106,20 @@ $('#botonActualizaLibro').click(function () {
                                 });
 
 </script>
+
+<style>
+    .botonesenperfil{
+    margin-top: 2px;
+    margin-bottom:6px;
+    margin-left:2%;
+    margin-right:2%;
+}
+
+.filas{
+    margin-top:2px;
+    margin-bottom:6px;
+}
+    
+</style>
 
 

@@ -117,14 +117,14 @@ $listaLibros = accesoBBDD($consultaLibros, $servidor, $bbdd, $usuario_mysql,$cla
 
 <div class="contenedorPerfil row" >
     <div class="col-4 border border-dark barraCentral">
-        <div class="row border border-dark">
+        <div class="row">
             <div class="col-2"></div>
             <div class="col-8 border border-dark fotoPerfil" >
                 <a href="#" class="image"><img src="<?php echo $fotoUser;?>"></a>
             <div class="col-2"></div>
         </div>
         </div>
-        <div class="row border border-dark" >
+        <div class="row" >
             <a href="#" class="button primary fit datos"><?php echo $nombreUser. " " . $apellidoUser;?></a>
             <br/>
             <a href="#" class="button primary fit datos"><?php echo $sexoUser;?></a> 
@@ -154,7 +154,7 @@ $listaLibros = accesoBBDD($consultaLibros, $servidor, $bbdd, $usuario_mysql,$cla
         <div class="row border border-dark descripcionUsuario" >
             <h3>Sobre el Autor;</h3>
             <p><?php echo $descripcionUser;?></p></div>
-        <div id="listaLibros" class="row border border-dark" >
+        <div id="listaLibros" class="row" >
             
             <?php
                foreach ($listaLibros as $key => $value){
@@ -177,28 +177,6 @@ $listaLibros = accesoBBDD($consultaLibros, $servidor, $bbdd, $usuario_mysql,$cla
 	  </article>
       </div>
             
-<!--            <div class="cajadelibros">
-                <div class="row">
-                  <div class="portadadelibro col-3">
-                      <a href="#" class="image"><img src="<?php echo $value['portada'];?>"></a></div>
-                  <div class="col-8">
-                      <div class="titulodelibro row"><h2><?php echo $value['titulo'];?></h2></div>
-                      <div class="autordelibro row"><h3><?php echo $value['autor'];?></h3></div>
-                      <div class="descripciondelibro row">Sinopsis; <?php echo $value['descripcion'];?></div>
-                      <div class="generodelibro row"><h4>Género; <?php echo $value['genero'];?></h4></div>
-                          <div class="row">
-                              <div class="col-6"></div>
-                              <div class="col-4">
-                              <button class=" botondelibro" value="<?php echo $value['IDLibro'];?>">Botón</button>
-                              </div>
-                              <div class="col-2"></div>
-                          </div>
-                      
-                  </div>
-                </div>
-            </div>
-            <br/>
-            <br/>-->
             
             <?php
                }

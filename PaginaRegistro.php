@@ -2,35 +2,85 @@
    session_start();
 ?>
 
-
-<div class="row">
+<div class="registroContainer">
+<div class="row filas">
     <div class="col-6 border border-dark">
-        <p>Nombre de Usuario</p>
-        <p>Contraseña</p>
-        <p>Repetir Contraseña</p>
-        <p>email</p>
-        <p>Nombre</p>
-        <p>Apellidos</p>
-        <p>Género</p>
-        <p>Ciudad</p>
-        <p>País</p> 
+        <button class="button primary fit" type="button">Nombre de Usuario</button>
     </div>
     <div class="col-6 border border-dark">
         <input id="cajaUser" class="form-control" name="usuario_nombre" type="text" placeholder="Usuario">
+    </div>
+</div>
+<div class="row filas">
+    <div class="col-6 border border-dark">
+        <button class="button primary fit" type="button">Contraseña</button>
+    </div>
+    <div class="col-6 border border-dark">
         <input id="cajaPassword" class="form-control" name="usuario_nombre" type="password" placeholder="Contraseña">
+    </div>
+</div>
+<div class="row filas">
+    <div class="col-6 border border-dark">
+        <button class="button primary fit" type="button">Repetir Contraseña</button>
+    </div>
+    <div class="col-6 border border-dark">
         <input id="cajaPasswordRe" class="form-control" name="usuario_nombre" type="password" placeholder="Repetir Contraseña">
+    </div>
+</div>
+<div class="row filas">
+    <div class="col-6 border border-dark">
+        <button class="button primary fit" type="button">E-Mail</button>
+    </div>
+    <div class="col-6 border border-dark">
         <input id="cajaEmail" class="form-control" name="usuario_nombre" type="text" placeholder="Email">
+    </div>
+</div>
+<div class="row filas">
+    <div class="col-6 border border-dark">
+        <button class="button primary fit" type="button">Nombre</button>
+    </div>
+    <div class="col-6 border border-dark">
         <input id="cajaNombreUs" class="form-control" name="usuario_nombre" type="text" placeholder="Nombre">
+    </div>
+</div>
+<div class="row filas">
+    <div class="col-6 border border-dark">
+        <button class="button primary fit" type="button">Apellidos</button>
+    </div>
+    <div class="col-6 border border-dark">
         <input id="cajaApellidos" class="form-control" name="usuario_nombre" type="text" placeholder="Apellidos">
+    </div>
+</div>
+<div class="row filas">
+    <div class="col-6 border border-dark">
+        <button class="button primary fit" type="button">Género</button>
+    </div>
+    <div class="col-6 border border-dark">
         <input id="cajaGenero" class="form-control" name="usuario_nombre" type="text" placeholder="Género">
+    </div>
+</div>
+<div class="row filas">
+    <div class="col-6 border border-dark">
+        <button class="button primary fit" type="button">Ciudad</button>
+    </div>
+    <div class="col-6 border border-dark">
         <input id="cajaCiudad" class="form-control" name="usuario_nombre" type="text" placeholder="Ciudad">
+    </div>
+</div>
+<div class="row filas">
+    <div class="col-6 border border-dark">
+        <button class="button primary fit" type="button">País</button>
+    </div>
+    <div class="col-6 border border-dark">
         <input id="cajaPais" class="form-control" name="usuario_nombre" type="text" placeholder="País">
     </div>
 </div>
-<div class="row">
+<div class="row filas">
     <div class="col-12">
         <button ID="botonRegistroUser" class="btn " type="button" >Registrarse</button>
     </div>
+</div>
+    
 </div>
 
 <script>
@@ -76,3 +126,25 @@
        
        
 </script>
+
+<style>
+    .botonesenperfil{
+    margin-top: 2px;
+    margin-bottom:6px;
+    margin-left:2%;
+    margin-right:2%;
+}
+
+.filas{
+    margin-top:2px;
+    margin-bottom:6px;
+}
+
+.registroContainer{
+    width:90%;
+    margin-left:30%;
+    margin-right:20%;
+    margin-top:6%;
+}
+    
+</style>
