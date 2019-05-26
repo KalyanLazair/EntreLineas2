@@ -34,7 +34,18 @@
         <button class="button primary fit" type="button">Género</button>
     </div>
     <div class="col-6 border border-dark">
-        <input id="cajaGeneroM" class="form-control" type="text" placeholder="Género">
+        <select name="demo-category" id="cajaGeneroM">
+		<option value="Aventuras">Aventuras</option>
+		<option value="Romantico">Romántico</option>
+		<option value="Terror">Terror</option>
+		<option value="Fantasia">Fantasía</option>
+		<option value="Policiaca">Policiaca</option>
+                <option value="Ciencia Ficcion">Ciencia Ficción</option>
+                <option value="Infantil">Infantil</option>
+                <option value="Biografia">Biografía</option>
+                <option value="Ensayo">Ensayo</option>
+                <option value="Politica">Política</option>
+	</select>
     </div>
 </div>
 <div class="row filas">
@@ -91,7 +102,7 @@ $('#botonActualizaLibro').click(function () {
                    var _archivo = $('#cajaArchivoM').val();
                    var _portada = $('#cajaPortadaM').val();
                                     
-                                    
+ 
                         $('#principal3').load("actualizaLibro.php", {
                                 libroID: libroID,
                                 titulo: _titulo,
