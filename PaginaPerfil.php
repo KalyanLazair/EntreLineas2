@@ -145,14 +145,21 @@ $listaLibros = accesoBBDD($consultaLibros, $servidor, $bbdd, $usuario_mysql,$cla
          <?php
          }
           ?>
+            <br/>
             
-            <br>
+            <?php
+          //isset busca si la variable $_Session existe.
+          if ($_SESSION['username'] == $autor) {
+              ?>
             <button class="btn botonesenperfil" type="button" onclick="publicaLibro();">Publicar Libro</button>
+          <?php
+         }
+          ?>
         </div>
     </div>
     <div id="principal2" class="col-8 border border-dark">
         <div class="row border border-dark descripcionUsuario" >
-            <h3>Sobre el Autor;</h3>
+            <h2>Sobre el Autor;</h2>
             <p><?php echo $descripcionUser;?></p></div>
         <div id="listaLibros" class="row" >
             
@@ -260,6 +267,8 @@ img {
     width:80%;
     height: 300px;
     margin:auto;
+    margin-top:4%;
+    margin-bottom:4%;
     padding: 6%;
 }
 

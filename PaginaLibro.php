@@ -48,13 +48,14 @@
     </div>
     <div id="principal3" class="col-8 border border-dark">
         <div class="row" ><a href="#"><img src="<?php echo $datosLibro["archivo10"];?>" id="textoMuestra"></a></div>
-        <div class="row" >
-            <div class="col-6">
+        <div class="row filas" >
+            <div class="col-5">
                 <button class="btn botonesCC" type="button">Comprar</button>
             </div>
-            <div class="col-6"> 
+            <div class="col-5"> 
                 <button class="btn botonesCC" type="button" onclick="muestraModal();">Comentar</button>
             </div> 
+            <div class="col-2"></div>
         </div>
         <div class="row">
         
@@ -228,6 +229,13 @@ img {
     margin-bottom:6px;
     margin-left:2%;
     margin-right:2%;
+}
+
+.filas{
+    margin-top:2px;
+    margin-bottom:6px;
+    margin-right: 4%;
+    margin-left:1%;
 }
 
     </style>

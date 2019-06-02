@@ -10,11 +10,8 @@
    $autorM=$_POST['autor'];
    $descripcionM=$_POST['descripcion'];
    $generoM=$_POST['genero'];
-   $archivo10M=$_POST['archivo10'];
-   $archivoM=$_POST['archivo'];
-   $portadaM=$_POST['portada'];
    
-   $modificaLibro="UPDATE $bbdd.libro SET titulo='$tituloM', autor='$autorM', descripcion='$descripcionM', genero='$generoM', archivo10='$archivo10M', archivo='$archivoM', portada='$portadaM' WHERE IDLibro=$libroID;";
+   $modificaLibro="UPDATE $bbdd.libro SET titulo='$tituloM', autor='$autorM', descripcion='$descripcionM', genero='$generoM' WHERE IDLibro=$libroID;";
    
    $datosLibro1=guardaDatos($modificaLibro, $servidor, $bbdd, $usuario_mysql, $clave_mysql);
    

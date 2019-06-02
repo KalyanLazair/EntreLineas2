@@ -36,7 +36,9 @@ and open the template in the editor.
         <link rel="stylesheet" href="assets/css/main.css" />
     </head>
     <body >
-        <div class="volverIndex" >Banner</div>
+        <div class="volverIndex" >Banner
+            <div class="letrasBanner">Entre Lineas</div>
+        </div>
         <div id="wrapper">
             
             <div id="main">
@@ -368,6 +370,19 @@ foreach ($portadasInicio as &$valorLibro) {
         .volverIndex{
             width:100%;
             height:200px;
+            background-image: url("./images/pic08.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        
+        .letrasBanner{
+            color: white;
+            font-size: 120px;
+            margin-left: 30%;
+            margin-right:10%;
+            margin-bottom: 10%;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            font-style: oblique;
         }
 
     </style>

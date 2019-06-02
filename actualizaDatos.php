@@ -12,9 +12,9 @@
    $ciudad=$_POST['ciudad'];
    $pais=$_POST['pais'];
    $descripcion=$_POST['descripcion'];
-   $foto=$_POST['foto'];
+  // $foto=$_POST['foto'];
    
-   $modPerfil="UPDATE $bbdd.userdata SET nombre='$nombre', apellidos='$apellidos', sexo='$sexo', ciudad='$ciudad', pais='$pais', descripcion='$descripcion', foto='$foto' WHERE IDUserData=$userID;";
+   $modPerfil="UPDATE $bbdd.userdata SET nombre='$nombre', apellidos='$apellidos', sexo='$sexo', ciudad='$ciudad', pais='$pais', descripcion='$descripcion' WHERE IDUserData=$userID;";
    $datosPerfilM=guardaDatos($modPerfil, $servidor, $bbdd, $usuario_mysql, $clave_mysql);
    
    if($datosPerfilM != null){

@@ -25,7 +25,9 @@ if($resultado2 != NULL){
 
 
 ?>
-
+<div class="row filas">
+    <h2>Actualiza datos personales</h2>
+</div>
 <div class="row filas">
     <div class="col-6 border border-dark">
         <button class="button primary fit" type="button">Nombre</button>
@@ -75,20 +77,89 @@ if($resultado2 != NULL){
     </div>
 </div>
 <div class="row filas">
-    <div class="col-6 border border-dark">
-        <button class="button primary fit" type="button">Foto</button>
-    </div>
-    <div class="col-6 border border-dark">
-        <input id="cajaF" class="form-control" type="text" placeholder="Foto">
-    </div>
-</div>
-<div class="row filas">
     <div class="col-12">
         <button id="botonActualizar" class="btn " type="button" >Actualizar</button>
     </div>
 </div>
 
+<div class="row filas">
+    <h2>Actualiza imagen de perfil</h2>
+</div>
+<form id="file-form" action="actualizaFoto.php" method="POST">
+    <div class="row filas">
+        <div class="col-6 border border-dark">
+            <button class="button primary fit" type="button">Foto</button>
+        </div>
+        <div class="col-6 border border-dark">
+
+                 Selecciona Imagen de Portada PNG o JPG:
+               <input type="file" name="archivoFoto" id="cajaF"> 
+            <
+            <!--<input id="cajaF" class="form-control" type="text" placeholder="Foto">-->
+        </div>
+    </div>
+    <div class="row filas">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <button id="botonFoto" class="btn" type="submit">Actualiza Foto</button>
+        </div>
+        <div class="col-1"></div>
+    </div>
+</form>
+
+
+<!--MODALES -->
+
+
+<!--MODAL error faltan archivos-->
+
+<<div id="modalArchivos" class="modal" tabindex="-1" role="dialog" >
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Faltan archivos. Compruebe que todos los campos se han rellenado correctamente.</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+ <!-- modal inserta -->
+
+   <div id="modalInserta" class="modal" tabindex="-1" role="dialog" >
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">La imagen se ha actualizado correctamente.</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick=volverPgPerfil();>
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+   
+   <!-- modal no inserta -->
+   
+   <div id="modalNoInserta" class="modal" tabindex="-1" role="dialog" >
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">No se ha podido actualizar la imagen.</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script>
+    
+    //Modifica perfil
 
    rellenaDatosPerfil();
     
@@ -99,7 +170,6 @@ if($resultado2 != NULL){
         cajaC.value="<?php echo $_SESSION['ciudad']; ?>";
         cajaP.value="<?php echo $_SESSION['pais']; ?>";
         cajaD.value="<?php echo $_SESSION['descripcion']; ?>";
-        cajaF.value="<?php echo $_SESSION['foto']; ?>";
     }
     
     $('#botonActualizar').click(function () {
@@ -111,7 +181,6 @@ if($resultado2 != NULL){
                    var _ciudad = $('#cajaC').val();
                    var _pais = $('#cajaP').val();
                    var _descripcion = $('#cajaD').val();
-                   var _foto= $('#cajaF').val();
                                     
                                     
                         $('#principal2').load("actualizaDatos.php", {
@@ -121,11 +190,104 @@ if($resultado2 != NULL){
                                 sexo: _sexo,
                                 ciudad: _ciudad,
                                 pais: _pais,
-                                descripcion: _descripcion,
-                                foto: _foto                
+                                descripcion: _descripcion              
                                     });       
                                     
                                 });
+                                
+     //Actualiza foto
+     
+    var form = document.getElementById('file-form');
+    var fileSelect = document.getElementById('cajaF');
+    var uploadButton = document.getElementById('botonFoto'); 
+    
+    form.onsubmit = function(event) {
+        event.preventDefault();
+
+              if(document.getElementById("cajaF").files[0] != undefined){
+                      if(
+                        document.getElementById("cajaF").files[0].name != ""){
+                       
+                          var _foto = document.getElementById("cajaF").files[0].name;
+
+          // Update button text.
+        uploadButton.innerHTML = 'Uploading...';
+
+       // The rest of the code will go here...
+       // Get the selected files from the input.
+       var files = fileSelect.files; 
+       // Create a new FormData object.
+       var formData = new FormData();
+       // Loop through each of the selected files.
+       for (var i = 0; i < files.length; i++) {
+           var file = files[i];
+
+           // Check the file type.
+           if (!file.type.match('image.*')) {
+              continue;
+           }
+
+           // Add the file to the request.
+            formData.append('archivoFoto', file, file.name);
+           }
+           
+           formData.append("foto", _foto);
+       // Set up the request.
+       var xhr = new XMLHttpRequest();
+       xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4) {
+                var responseStatus = xhr.response.replace(/^\s\n+|\s\n+$/g,'');
+                if(responseStatus == "success"){
+                   muestraModalInserta(); 
+                }else{
+                    muestraModalNoInserta();
+                }       
+            }
+        }
+       // Open the connection.
+       xhr.open('POST', 'actualizaFoto.php', true);
+       // Set up a handler for when the request finishes.
+         xhr.onload = function () {
+           if (xhr.status === 200) {
+             // File(s) uploaded.
+             uploadButton.innerHTML = 'Upload';
+           } else {
+              alert('An error occurred!');
+           }
+        };
+        
+        // Send the Data.
+        xhr.send(formData);
+
+                     }   
+                   }else{
+                       muestraModalArchivos();
+                   }
+
+};
+
+   function muestraModalArchivos() {
+        $('#modalArchivos').modal('show');
+    };
+    
+     function muestraModalInserta() {
+        $('#modalInserta').modal('show');
+    };
+    
+      function muestraModalNoInserta(){
+         $('#modalNoInserta').modal('show'); 
+      };
+      
+    
+    var numeroPerfil=1;
+    
+    function volverPgPerfil(){
+        var _numPerfil=numeroPerfil;
+        
+        $("#contenedor").load("PaginaPerfil.php", {
+            numeroPerfil: _numPerfil
+        });
+    };
      
 
 </script>
@@ -134,13 +296,15 @@ if($resultado2 != NULL){
     .botonesenperfil{
     margin-top: 2px;
     margin-bottom:6px;
-    margin-left:2%;
+    margin-left:1%;
     margin-right:2%;
 }
 
 .filas{
     margin-top:2px;
     margin-bottom:6px;
+    margin-right: 4%;
+    margin-left:2%;
 }
     
 </style>

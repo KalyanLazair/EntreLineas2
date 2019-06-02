@@ -1,6 +1,10 @@
 <?php
    session_start();
 ?>
+<div class="row filas">
+    <h2>Inserta los datos del libro</h2>
+    <h5>Todos los campos tienen que ser cumplimentados de acuerdo a las instrucciones. De no ser así el libro no podrá publicarse.</h5>
+</div>
 <div>
  <form id="file-form" action="publicar.php" method="POST">
  <div class="row filas">
@@ -39,6 +43,9 @@
     </div>
 </div>
 <div class="row filas">
+    <h4>El archivo de muestra tiene que ser una imagen PNG o JPG de alguna página del libro.</h4>
+</div>
+<div class="row filas">
     <div class="col-6 border border-dark">
         <button class="button primary fit" type="button">Muestra</button>
     </div>
@@ -47,22 +54,27 @@
            Selecciona Imagen de Muestra PNG o JPG:
            <input type="file" name="archivoMuestra" id="cajaArchivo10">      
         
-        
-       <!-- <input id="cajaArchivo10" class="form-control" name="archivo10_libro" type="text" placeholder="Archivo 10pg."> -->
     </div>
+</div>
+ 
+<div class="row filas">
+    <h4>El archivo principal del libro tiene que ser en formato PDF.</h4>
 </div>
 <div class="row filas">
     <div class="col-6 border border-dark">
-        <button class="button primary fit" type="button">Archivo E-Book</button>
+        <button class="button primary fit" type="button">Archivo</button>
     </div>
     <div class="col-6 border border-dark">
         
         
            Selecciona Archivo PDF:
            <input type="file" name="archivoPrincipal" id="cajaArchivo"> 
-        
-       <!-- <input id="cajaArchivo" class="form-control" name="archivo_libro" type="text" placeholder="Archivo e-Book"> -->
+
     </div>
+</div>
+ 
+<div class="row filas">
+    <h4>La portada tiene que ser una imagen en formato PNG o JPG.</h4>
 </div>
 <div class="row filas">
     <div class="col-6 border border-dark">
@@ -78,9 +90,11 @@
     </div>
 </div>
 <div class="row filas">
-    <div class="col-12">
+    <div class="col-1"></div>
+    <div class="col-10">
        <button id="botonPublicar" class="btn " type="submit">Publicar</button> 
     </div>
+    <div class="col-1"></div>
 </div>
 
  </form>
@@ -184,9 +198,9 @@
            var file = files[i];
 
            // Check the file type.
-           if (!file.type.match('image.*')) {
+          /* if (!file.type.match('image.*')) {
               continue;
-           }
+           }*/
 
            // Add the file to the request.
             formData.append('archivoPrincipal', file, file.name);
@@ -277,13 +291,15 @@
     .botonesenperfil{
     margin-top: 2px;
     margin-bottom:6px;
-    margin-left:2%;
+    margin-left:1%;
     margin-right:2%;
 }
 
 .filas{
     margin-top:2px;
     margin-bottom:6px;
+    margin-right: 4%;
+    margin-left:2%;
 }
     
 </style>
